@@ -83,14 +83,12 @@ function showLogin(modal) {
 		closeOnClick: modal ? false : "overlay",
 		closeButton: modal ? false : "overlay",
 		onCreated() {
-			let dialog = this;
-			let form = dialog.content.find("form");
+			let form = $(`#${this.id} form`);
 			form.submit(event => {
 				let btn = form.find("button");
-				let text = btn.html();
-				btn.prop("disabled", true).html("Submitting...");
+				btn.prop("disabled", true);
 				Ajax.post("login", form.serialize())
-					.done(data => {
+				.done(_ => {
 						let url = new URL(window.location.href).searchParams.get("url");
 						if (modal && url === null) {
 							url = "/";
@@ -98,8 +96,8 @@ function showLogin(modal) {
 						if (url !== null) {
 							window.location.href = url;
 						}
-						dialog.close();
-					}).always(() => btn.prop("disabled", false).html(text));
+						this.close();
+					}).always(() => btn.prop("disabled", false));
 				event.preventDefault();
 			});
 		},
@@ -136,9 +134,7 @@ $(() => {
 		animation: "zoomOut"
 	});
 
-	$("#nav-toggle").click(event => {
-		$(document.body).toggleClass("nav-expanded");
-	});
+	$("#nav-toggle").click(_ => $(document.body).toggleClass("nav-expanded"));
 
 	$("#search-toggle").click(event => {
 		$("#form-search").addClass("show");
@@ -158,7 +154,7 @@ $(() => {
 	});
 
 	$("#form-search").submit(event => {
-		loadSearch();
+		
 		event.preventDefault();
 	});
 

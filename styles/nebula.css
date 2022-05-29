@@ -317,7 +317,7 @@ input[type="checkbox"] {
 	appearance: none;
 	display: inline-block;
 	position: relative;
-	margin: 0 0.5rem;
+	margin-right: 0.5rem;
 	font-size: 1em;
 	width: 1.25em;
 	height: 1.25em;
@@ -467,6 +467,24 @@ input[type="checkbox"]:disabled:checked:before {
 /* Util class
 ============================================================================= */
 
+.block {
+	display: block;
+}
+
+.w100 {
+	width: 100%;
+}
+
+.al {
+	text-align: left;
+}
+.ac {
+	text-align: center;
+}
+.ar {
+	text-align: right;
+}
+
 .m0 {
 	margin: 0;
 }
@@ -545,28 +563,14 @@ input[type="checkbox"]:disabled:checked:before {
 	margin-right: 3rem;
 }
 
-.al {
-	text-align: left;
-}
-.ac {
-	text-align: center;
-}
-.ar {
-	text-align: right;
-}
-
-.w100 {
-	width: 100%;
-}
-
-.sx {
-	overflow-x: auto;
-}
-
 .bt {
 	border-top: thin solid #ccc;;
 }
 
 .bb {
 	border-bottom: thin solid #ccc;;
+}
+
+.sx {
+	overflow-x: auto;
 }
