@@ -1,0 +1,292 @@
+@import "nebula.css";
+
+body {
+	padding: 5rem 0 0;
+	min-height: 100vh;
+	background: #e9e9e9;
+	color: #333;
+}
+
+a {
+	color: #f44336;
+}
+
+
+/* Header
+============================================================================= */
+
+#header {
+	display: flex;
+	width: 100%;
+	height: 5rem;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 9999;
+	background: #f44336;
+	box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.3);
+}
+
+#header a {
+	display: inline-block;
+	position: relative;
+	line-height: 5rem;
+	min-width: 5rem;
+	color: #eee;
+	text-align: center;
+	cursor: pointer;
+	text-decoration: none;
+	user-select: none;
+	transition: 0.2s;
+	text-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.3);
+}
+
+#header a:hover {
+	color: #fff;
+	background: rgba(0, 0, 0, 0.25);
+	text-shadow: 0 0 0.1em #fff, 0 0 0.3em #fff;
+}
+
+#logo {
+	margin-right: auto;
+	padding: 0 1rem;
+	font-size: 2rem;
+	font-weight: bold;
+	background: none !important;
+}
+
+#actions {
+	display: flex;
+	font-size: 2.4rem;
+}
+
+#nav-toggle {
+	font-size: 2.4rem;
+}
+
+#nav-toggle svg:last-child {
+	display: none;
+}
+
+.nav-expanded #nav-toggle svg:first-child {
+	display: none;
+}
+
+.nav-expanded #nav-toggle svg:last-child {
+	display: inline-block;
+}
+
+#form-search {
+	position: absolute;
+	top: -5rem;
+	width: 100%;
+	height: 5rem;
+	transition: 0.2s;
+}
+
+#form-search.show {
+	top: 0;
+}
+
+#form-search > label {
+	position: absolute;
+	font-size: 3rem;
+	margin: 0.4rem 1rem;
+	color: #ccc;
+}
+
+#form-search > button {
+	position: absolute;
+	right: 0;
+	font-size: 2.4rem;
+	line-height: 4rem;
+	text-align: center;
+	color: #999;
+	width: 4rem;
+	height: 4rem;
+	margin: 0.5rem;
+	border: 0;
+	padding: 0;
+	text-shadow: none;
+	background: transparent;
+	transition: 0.2s;
+}
+
+#form-search > button:hover {
+	color: #333;
+	cursor: pointer;
+	background: #eee;
+	border-radius: 100%;
+	box-shadow: none;
+}
+
+#form-search > input {
+	width: 100%;
+	height: 100%;
+	border: thin solid #f44336;
+	padding: 0 5rem 0 4rem;
+	font-size: 2rem;
+	background: #fff;
+	box-shadow: none;
+}
+
+.label-count {
+	position: absolute;
+	transform: translate(-0.5rem, 0.5rem);
+	font-style: normal;
+	font-size: 0.5rem;
+	line-height: 1;
+	padding: 0.2rem 0.3rem;
+	background: rgba(0, 0, 0, 0.8);
+	border-radius: 20%;
+}
+
+
+/* Navigation
+============================================================================= */
+
+#nav {
+	position: fixed;
+	top: 5rem;
+	left: 0;
+	z-index: 9998;
+	height: calc(100vh - 5rem);
+	font-weight: bold;
+	background: #fff;
+	box-shadow: 0.1rem 0 0.5rem rgba(0, 0, 0, 0.3);
+}
+
+#nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#nav li ul {
+	display: none;
+}
+
+#nav li.active > a {
+	color: #f44336;
+}
+
+#nav li:hover {
+	transition: 0.2s;
+	background: rgba(0, 0, 0, 0.1);
+}
+
+#nav a {
+	height: 5rem;
+	min-width: 5rem;
+	display: flex;
+	align-items: center;
+	color: #333;
+	user-select: none;
+	text-decoration: none;
+}
+
+#nav svg {
+	width: 5rem;
+	font-size: 2.4rem;
+	line-height: 5rem;
+	text-align: center;
+}
+
+#nav a > span {
+	display: none;
+}
+
+#nav li ul a {
+	font-weight: normal;
+}
+
+#nav li.has-sub > a:after {
+	display: none;
+	content: "+";
+	font-size: 2rem;
+	font-weight: bold;
+	position: absolute;
+	right: 1.5rem;
+}
+
+#nav li.has-sub.expanded > a:after {
+	content: "-";
+}
+
+#nav li.has-sub.expanded {
+	background: rgba(0, 0, 0, 0.05);
+}
+
+#nav li.has-sub.expanded ul {
+	display: block;
+}
+
+#nav:hover,
+.nav-expanded #nav {
+	width: 25rem;
+}
+
+#nav:hover a > span,
+#nav:hover li.has-sub > a:after,
+.nav-expanded #nav a > span,
+.nav-expanded #nav li.has-sub > a:after {
+	display: inline-block;
+}
+
+
+/* Main
+============================================================================= */
+
+#main {
+	margin-left: 5rem;
+	padding: 2rem;
+	min-height: calc(100vh - 5rem);
+}
+
+.nav-expanded #main {
+	margin-left: 25rem;
+}
+
+#main > header {
+	font-weight: 500;
+	font-size: 2rem;
+	margin-bottom: 1rem;
+}
+
+#main > section {
+	margin: 0 0 2rem;
+	background: #fff;
+	box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+#main > section > header {
+	font-size: 2rem;
+	padding: 1.5rem 2rem;
+	border-bottom: thin solid rgba(0, 0, 0, 0.15);
+}
+
+#main > section > * {
+	padding: 2rem;
+}
+
+.pagination a.active,
+.pagination a:hover {
+	background: #f44336;
+}
+
+
+/* Mis
+============================================================================= */
+
+.loader {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.loader img {
+	height: 10rem;
+}
