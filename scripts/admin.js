@@ -68,27 +68,34 @@ class Ajax {
 	}
 }
 
-function showLogin(modal) {
-	new jBox("Modal", {
-		content: `<form>
-					<p><input class="w100" id="username" type="text" name="username" placeholder="Username" required/></p>
-					<p><input class="w100" type="password" name="password" placeholder="Password" required/></p>
-					<p>
-						<input type="checkbox" id="remember" name="remember" value="true"/>
-						<label for="remember">Remember me</label>
-					</p>
-					<p><button class="primary ripple w100">Log In</button></p>
-				</form>`,
-		closeOnEsc: !modal,
-		closeOnClick: modal ? false : "overlay",
-		closeButton: modal ? false : "overlay",
-		onCreated() {
-			let form = $(`#${this.id} form`);
-			form.submit(event => {
-				let btn = form.find("button");
-				btn.prop("disabled", true);
-				Ajax.post("login", form.serialize())
-				.done(_ => {
+class Login {
+	static visible;
+
+	static show(modal) {
+		if (this.visible) {
+			return;
+		}
+		this.visible = true;
+		new jBox("Modal", {
+			content: `<form>
+						<p><input class="w100" id="username" type="text" name="username" placeholder="Username" required/></p>
+						<p><input class="w100" type="password" name="password" placeholder="Password" required/></p>
+						<p>
+							<input type="checkbox" id="remember" name="remember" value="true"/>
+							<label for="remember">Remember me</label>
+						</p>
+						<p><button class="primary ripple w100">Log In</button></p>
+					</form>`,
+			closeOnEsc: !modal,
+			closeOnClick: modal ? false : "overlay",
+			closeButton: modal ? false : "overlay",
+			onCreated() {
+				let form = $(`#${this.id} form`);
+				form.submit(event => {
+					let btn = form.find("button");
+					btn.prop("disabled", true);
+					Ajax.post("/login", form.serialize())
+					.done(_ => {
 						let url = new URL(window.location.href).searchParams.get("url");
 						if (modal && url === null) {
 							url = "/";
@@ -98,14 +105,16 @@ function showLogin(modal) {
 						}
 						this.close();
 					}).always(() => btn.prop("disabled", false));
-				event.preventDefault();
-			});
-		},
-		onCloseComplete() {
-			this.destroy();
-		}
-	}).open();
-	$("#username").focus();
+					event.preventDefault();
+				});
+			},
+			onCloseComplete() {
+				Login.visible = false;
+				this.destroy();
+			}
+		}).open();
+		$("#username").focus();
+	}
 }
 
 $(() => {
@@ -114,7 +123,7 @@ $(() => {
 	}).ajaxError(function (event, xhr, settings, error) {
 		if (xhr.status === 401) {
 			Notice.error("Authentication required.");
-			showLogin();
+			Login.show();
 		} else {
 			if (xhr.responseJSON && xhr.responseJSON.msg) {
 				Notice.error(xhr.responseJSON.msg);
