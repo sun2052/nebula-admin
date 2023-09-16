@@ -22,7 +22,7 @@ a {
 	position: fixed;
 	left: 0;
 	top: 0;
-	z-index: 9999;
+	z-index: 999;
 	background: #f44336;
 	box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.3);
 }
@@ -60,19 +60,19 @@ a {
 	font-size: 2.4rem;
 }
 
-#nav-toggle {
+#btn-nav {
 	font-size: 2.4rem;
 }
 
-#nav-toggle svg:last-child {
+#btn-nav svg:last-child {
 	display: none;
 }
 
-.nav-expanded #nav-toggle svg:first-child {
+.nav-expanded #btn-nav svg:first-child {
 	display: none;
 }
 
-.nav-expanded #nav-toggle svg:last-child {
+.nav-expanded #btn-nav svg:last-child {
 	display: inline-block;
 }
 
@@ -149,7 +149,7 @@ a {
 	position: fixed;
 	top: 5rem;
 	left: 0;
-	z-index: 9998;
+	z-index: 998;
 	height: calc(100vh - 5rem);
 	font-weight: bold;
 	background: #fff;
@@ -289,4 +289,9 @@ a {
 
 .loading img {
 	height: 10rem;
+}
+
+table td {
+	max-width: 100rem;
+	overflow-wrap: break-word;
 }

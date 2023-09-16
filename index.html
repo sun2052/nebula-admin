@@ -13,20 +13,21 @@
 <script src="https://lib.baomitu.com/jBox/1.3.3/jBox.all.min.js"></script>
 <script src="https://lib.baomitu.com/perfect-scrollbar/1.5.5/perfect-scrollbar.min.js"></script>
 <script src="https://lib.baomitu.com/mustache.js/latest/mustache.min.js"></script>
+<script src="scripts/nebula.js"></script>
 <script src="scripts/admin.js"></script>
 </head>
 <body>
 <header id="header">
-	<a id="nav-toggle"><span class="iconify-inline" data-icon="mdi:menu"></span><span class="iconify-inline" data-icon="mdi:arrow-collapse-left"></span></a>
+	<a id="btn-nav"><span class="iconify-inline" data-icon="mdi:menu"></span><span class="iconify-inline" data-icon="mdi:arrow-collapse-left"></span></a>
 	<a id="logo">Nebula Admin</a>
 	<div id="actions">
 		<a id="btn-bell" title="Notifications"><span class="iconify-inline" data-icon="mdi:bell"></span><i class="label-count">99</i></a>
-		<a id="search-toggle" title="Search"><span class="iconify-inline" data-icon="mdi:magnify"></span></a>
+		<a id="btn-search" title="Search"><span class="iconify-inline" data-icon="mdi:magnify"></span></a>
 	</div>
 	<form id="form-search">
 		<label for="keyword"><span class="iconify-inline" data-icon="mdi:magnify"></span></label>
 		<input type="text" id="keyword" placeholder="Search..."/>
-		<button id="search-close" type="button"><span class="iconify-inline" data-icon="mdi:close"></span></button>
+		<button id="btn-close" type="button"><span class="iconify-inline" data-icon="mdi:close"></span></button>
 	</form>
 </header>
 <nav id="nav">
@@ -34,7 +35,7 @@
 		<li class="active"><a id="nav-dashboard"><span class="iconify-inline" data-icon="mdi:view-dashboard-outline"></span><span>Dashboard</span></a></li>
 		<li><a id="nav-messages"><span class="iconify-inline" data-icon="mdi:email-multiple-outline"></span><span>Messages</span></a></li>
 		<li class="has-sub">
-			<a id="nav-database"><span class="iconify-inline" data-icon="mdi:database-cog-outline"></span><span>Database</span></a>
+			<a id="nav-database" noselect><span class="iconify-inline" data-icon="mdi:database-cog-outline"></span><span>Database</span></a>
 			<ul>
 				<li><a id="nav-database-query"><span class="iconify-inline" data-icon="mdi:database-search-outline"></span><span>Query Database</span></a></li>
 				<li><a id="nav-database-backup"><span class="iconify-inline" data-icon="mdi:database-arrow-down-outline"></span><span>Back Up Database</span></a></li>
@@ -42,13 +43,13 @@
 			</ul>
 		</li>
 		<li class="has-sub">
-			<a id="nav-account"><span class="iconify-inline" data-icon="mdi:account-outline"></span><span>Account</span></a>
+			<a id="nav-account" noselect><span class="iconify-inline" data-icon="mdi:account-outline"></span><span>Account</span></a>
 			<ul>
 				<li><a id="nav-resetpass"><span class="iconify-inline" data-icon="mdi:lock-reset"></span><span>Reset Password</span></a></li>
 			</ul>
 		</li>
 		<li class="has-sub">
-			<a id="nav-links"><span class="iconify-inline" data-icon="mdi:at"></span><span>Links</span></a>
+			<a id="nav-links" noselect><span class="iconify-inline" data-icon="mdi:at"></span><span>Links</span></a>
 			<ul>
 				<li><a id="nav-byteinfo" target="_blank" href="#!"><span class="iconify-inline" data-icon="mdi:home-outline"></span><span>ByteInfo.org</span></a></li>
 				<li><a id="nav-notebook" target="_blank" href="#!"><span class="iconify-inline" data-icon="mdi:notebook-outline"></span><span>Notebook</span></a></li>

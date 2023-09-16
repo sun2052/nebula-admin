@@ -35,11 +35,11 @@ a:hover, a:focus {
 }
 
 code, pre {
-	font-family: "Roboto Mono", "PingFang SC", "Microsoft YaHei", monospace;
+	font-family: "Roboto Mono", Consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;
 }
 
 code {
-	padding: 0.2rem 0.5rem;
+	padding: 0.1rem 0.4rem 0.2rem;
 	color: #f00;
 	background: #fee;
 	border-radius: 0.2em;
@@ -97,7 +97,7 @@ h6, .h6 {
 	font-size: 1.6rem;
 }
 
-p {
+p, ol, ul {
 	margin: 2rem 0;
 }
 
@@ -159,7 +159,7 @@ button, .button {
 	align-items: center;
 	vertical-align: middle;
 	height: 4rem;
-	padding: 0 1.5rem;
+	padding: 0 2rem;
 	border: 0.1rem solid #ccc;
 	cursor: pointer;
 	text-decoration: none;
@@ -588,4 +588,8 @@ input[type="checkbox"]:disabled:checked:before {
 
 .sx {
 	overflow-x: auto;
+}
+
+.noselect {
+	user-select: none;
 }
